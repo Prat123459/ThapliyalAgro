@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/first.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Modern background color */
+        }
+
+        .black-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensures the black bar is above other content */
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+        }
+
+        .weather-info {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #1455a2;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .content {
+            margin-top: 80px; /* Adjust to push content below the fixed black bar */
+        }
+    </style>
+</head>
+<body>
+    <div class="black-bar">
+        <h1>Thapliyal-AgroTech Connect</h1>
+    </div>
+    <div class="content">
+        {% if city %}
+        <div class="weather-info">
+            <h2>Weather Report for {{ city }}</h2>
+            <pre>{{ weather_data|safe }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

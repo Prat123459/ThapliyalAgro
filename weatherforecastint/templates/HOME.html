@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thapliyal-AgroTech</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/homekacss.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://img95.lovepik.com/photo/40106/7716.gif_wh860.gif");
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px; /* Same width for both cards */
+            margin: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #067b27;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #0bb05d;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0a9552;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1f5f91;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Crop Prediction</h1>
+            <p>Welcome to our crop prediction system. Click the button below to predict your crop.</p>
+            <form action="/Predict">
+                <button class="button" type="submit">Predict Crop</button>
+            </form>
+        </div>
+        <div class="card">
+            <h1>Weather Forecast</h1>
+            <p>Get the latest weather forecast for your city. Enter the city name below.</p>
+            <form action="/weather" method="post">
+                <label for="city">Enter City Name:</label>
+                <input type="text" id="city" name="city" required>
+                <button class="button" type="submit">Get Weather</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
