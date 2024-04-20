@@ -154,7 +154,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-df = pd.read_csv('C:\\Users\\pratyush\\Desktop\\AnubhavAgroTech-main\\weatherforecastint\\Crop_recommendation.csv')
+df = pd.read_csv('C:\\Users\\pratyush\\Desktop\\ThapliyalAgro-main\\weatherforecastint\\Crop_recommendation.csv')
 df.head()
 df.info()
 
