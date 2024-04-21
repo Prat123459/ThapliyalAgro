@@ -56,17 +56,70 @@
         .content {
             margin-top: 80px; /* Adjust to push content below the fixed black bar */
         }
+
+        .logo-container {
+            position: fixed;
+            top: 80px; /* Adjust the top distance as needed */
+            right: 30px; /* Adjust the right distance as needed */
+            width: 120px; /* Same width as the logo */
+            height: 120px; /* Same height as the logo */
+            border-radius: 50%; /* Creates a circular frame */
+            overflow: hidden; /* Hides the parts of the image outside the circular frame */
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1); /* Increases the size on hover */
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+
+        .weather-icons {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .weather-icon {
+            font-size: 36px;
+            margin-right: 10px;
+        }
+
+        .sun {
+            color: yellow;
+        }
+
+        .clouds {
+            color: #7f8c8d; /* Cloudy color */
+        }
+
+        .rain {
+            color: blue;
+        }
     </style>
 </head>
 <body>
     <div class="black-bar">
         <h1>Thapliyal-AgroTech Connect</h1>
     </div>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/NtBjzQN/Designer.png" alt="Designer" class="logo">
+    </div>
     <div class="content">
         {% if city %}
         <div class="weather-info">
             <h2>Weather Report for {{ city }}</h2>
+            <div class="weather-icons">
+                <span class="weather-icon sun">&#9728;</span><span class="sun">Sun       .</span>
+                <span class="weather-icon clouds">&#9729;</span><span class="clouds">Clouds       .</span>
+                <span class="weather-icon rain">&#9730;</span><span class="rain">Rain</span>
+            </div>
             <pre>{{ weather_data|safe }}</pre>
+            
         </div>
         {% endif %}
     </div>
