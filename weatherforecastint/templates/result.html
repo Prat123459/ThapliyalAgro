@@ -24,6 +24,24 @@
             height: 100vh;
         }
 
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1);
+        }
+
+        .logo {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Circular frame */
+        }
+
         .card {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 10px;
@@ -62,13 +80,52 @@
             margin-bottom: 20px;
             font-size: 24px; /* Larger font size */
         }
+
+        .reveal-box {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .reveal-box:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            background: linear-gradient(45deg, #ffcc00, #ff6699); /* Gradient background */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/NtBjzQN/Designer.png" alt="Logo" class="logo">
+    </div>
     <div class="container">
         <div class="card">
-            <h1>According to your soil nutrients, You Should Grow:<br>{{ prediction }}</h1>
+            <h1>According to your soil nutrients, You Should Grow:<br><span id="cropName" class="reveal-box">Tap to Reveal</span></h1>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cropName = document.getElementById('cropName');
+            cropName.addEventListener('click', function () {
+                cropName.innerHTML = decodeEntities('{{prediction}}');
+                cropName.classList.add('revealed-box');
+            });
+
+            // Function to decode HTML entities and remove square brackets and single quotes
+            function decodeEntities(encodedString) {
+                var textArea = document.createElement('textarea');
+                textArea.innerHTML = encodedString;
+                var decodedString = textArea.value;
+                // Remove square brackets and single quotes
+                decodedString = decodedString.replace(/[\[\]']/g, '');
+                return decodedString;
+            }
+        });
+    </script>
 </body>
 </html>
