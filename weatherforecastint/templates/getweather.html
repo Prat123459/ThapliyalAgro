@@ -10,7 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Modern background color */
+            background: url('https://i.gifer.com/origin/f8/f80b830663b54657e444adc701497981_w200.webp') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .black-bar {
@@ -18,13 +19,13 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
             color: white;
             padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* Ensures the black bar is above other content */
+            z-index: 1000;
         }
 
         h1 {
@@ -36,7 +37,7 @@
             margin: 20px;
             padding: 20px;
             border: 1px solid #ccc;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white */
             border-radius: 5px;
         }
 
@@ -54,23 +55,23 @@
         }
 
         .content {
-            margin-top: 80px; /* Adjust to push content below the fixed black bar */
+            margin-top: 80px;
         }
 
         .logo-container {
             position: fixed;
-            top: 80px; /* Adjust the top distance as needed */
-            right: 30px; /* Adjust the right distance as needed */
-            width: 120px; /* Same width as the logo */
-            height: 120px; /* Same height as the logo */
-            border-radius: 50%; /* Creates a circular frame */
-            overflow: hidden; /* Hides the parts of the image outside the circular frame */
+            top: 80px;
+            right: 30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
             z-index: 1;
             transition: transform 0.3s ease;
         }
 
         .logo-container:hover {
-            transform: scale(1.1); /* Increases the size on hover */
+            transform: scale(1.1);
         }
 
         .logo {
@@ -94,7 +95,7 @@
         }
 
         .clouds {
-            color: #7f8c8d; /* Cloudy color */
+            color: #7f8c8d;
         }
 
         .rain {
@@ -114,12 +115,11 @@
         <div class="weather-info">
             <h2>Weather Report for {{ city }}</h2>
             <div class="weather-icons">
-                <span class="weather-icon sun">&#9728;</span><span class="sun">Sun       .</span>
-                <span class="weather-icon clouds">&#9729;</span><span class="clouds">Clouds       .</span>
+                <span class="weather-icon sun">&#9728;</span><span class="sun">Sun</span>
+                <span class="weather-icon clouds">&#9729;</span><span class="clouds">Clouds</span>
                 <span class="weather-icon rain">&#9730;</span><span class="rain">Rain</span>
             </div>
             <pre>{{ weather_data|safe }}</pre>
-            
         </div>
         {% endif %}
     </div>
