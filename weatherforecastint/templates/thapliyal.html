@@ -69,56 +69,82 @@
         .button:hover {
             background-color: #0a9552;
         }
+
+        .logo-container {
+            position: fixed;
+            top: 20px; /* Adjust the top distance as needed */
+            left: 20px; /* Adjust the left distance as needed */
+            width: 120px; /* Same width as the logo */
+            height: 120px; /* Same height as the logo */
+            border-radius: 50%; /* Creates a circular frame */
+            overflow: hidden; /* Hides the parts of the image outside the circular frame */
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1); /* Increases the size on hover */
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="https://i.ibb.co/NtBjzQN/Designer.png" alt="Designer" class="logo">
+    </div>
     <div class="container">
         <div class="card">
             <h2>Crop recommendation System :</h2>
             <form action="/form" method="POST">
-                <div class="input-group">
-                    <label for="title" class="label">Title:</label>
-                    <select id="title" name="title" class="form-control">
-                        <option value="Mr.">Mr.</option>
-                        <option value="Mrs.">Mrs.</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="name" class="label">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Nitrogen" class="label">Nitrogen:</label>
-                    <input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter value here" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Phosphorus" class="label">Phosphorus:</label>
-                    <input type="number" id="Phosphorus" name="Phosphorus" placeholder="Enter value here" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Potassium" class="label">Potassium:</label>
-                    <input type="number" id="Potassium" name="Potassium" placeholder="Enter value here" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Temperature" class="label">Temperature:</label>
-                    <input type="number" step="0.01" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Humidity" class="label">Humidity:</label>
-                    <input type="number" step="0.01" id="Humidity" name="Humidity" placeholder="Enter value in %" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="pH" class="label">pH:</label>
-                    <input type="number" step="0.01" id="pH" name="pH" placeholder="Enter pH value" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="Rainfall" class="label">Rainfall:</label>
-                    <input type="number" step="0.01" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" class="form-control">
-                </div>
-                <div class="input-group">
-                    <input type="submit" id="submit" name="submit" value="Predict Your Crop" class="button">
-                </div>
-            </form>
+                <form action="/form" method="POST">
+                    <div class="input-group">
+                        <label for="title" class="label">Title:</label>
+                        <select id="title" name="title" class="form-control">
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="name" class="label">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Nitrogen" class="label">Nitrogen:</label>
+                        <input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter value here" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Phosphorus" class="label">Phosphorus:</label>
+                        <input type="number" id="Phosphorus" name="Phosphorus" placeholder="Enter value here" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Potassium" class="label">Potassium:</label>
+                        <input type="number" id="Potassium" name="Potassium" placeholder="Enter value here" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Temperature" class="label">Temperature:</label>
+                        <input type="number" step="0.01" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Humidity" class="label">Humidity:</label>
+                        <input type="number" step="0.01" id="Humidity" name="Humidity" placeholder="Enter value in %" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="pH" class="label">pH:</label>
+                        <input type="number" step="0.01" id="pH" name="pH" placeholder="Enter pH value" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="Rainfall" class="label">Rainfall:</label>
+                        <input type="number" step="0.01" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" id="submit" name="submit" value="Predict Your Crop" class="button">
+                    </div>
+                </form>
+                            </form>
         </div>
     </div>
 </body>
