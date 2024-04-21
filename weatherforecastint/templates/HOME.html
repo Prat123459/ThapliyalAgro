@@ -23,6 +23,27 @@
             height: 100vh;
         }
 
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 120px; /* Adjust the width and height as needed */
+            height: 120px;
+            border-radius: 50%; /* Creates a circular frame */
+            overflow: hidden; /* Hides the parts of the image outside the circular frame */
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1); /* Increases the size on hover */
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+
         .card {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
@@ -107,6 +128,10 @@
     </style>
 </head>
 <body>
+    <!-- Use the direct image URL of the logo -->
+    <div class="logo-container">
+        <img src="https://i.ibb.co/NtBjzQN/Designer.png" alt="Designer" class="logo">
+    </div>
     <div class="container">
         <div class="card">
             <h1>Crop Prediction</h1>
