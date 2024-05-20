@@ -1,21 +1,19 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-df = pd.read_csv('C:\\Users\\pratyush\\Desktop\\ThapliyalAgro-main\\weatherforecastint\\Crop_recommendation.csv')
-df.head()
+df = pd.read_csv('D:/ThapliyalAgro-main/weatherforecastint/Crop_recommendation.csv')
+print(df.head())
 df.info()
+print(df['label'].value_counts)
+x=df.drop('label',axis=1)
+y=df['label']
+print(y) 
+print(df.tail())
+print(df.isnull().sum())
 
-if df['N'].all()>90:
-    print(df['N'])
-
-df.isnull().sum()
-
-
-x = df.drop('label', axis = 1)
-y = df['label']
 
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x,y, stratify = y, random_state = 1)
+x_train, x_test, y_train, y_test = train_test_split(x,y, stratify = y, random_state = 1,test_size=0.30)
 
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
@@ -63,3 +61,4 @@ with open(Pkl_Filename, 'rb') as file:
     Pickled_Model = pickle.load(file)
 
 Pickled_Model
+
