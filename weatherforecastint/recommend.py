@@ -5,6 +5,7 @@ print(df.head())
 print(df.shape)
 df.info()
 print(df['label'].value_counts)
+print(df.describe())   
 x=df.drop('label',axis=1)
 y=df['label']
 print(y) 
