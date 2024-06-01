@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 df = pd.read_csv('D:/ThapliyalAgro-main/weatherforecastint/Crop_recommendation.csv')
 print(df.head())
+print(df.shape)
 df.info()
 print(df['label'].value_counts)
 x=df.drop('label',axis=1)
